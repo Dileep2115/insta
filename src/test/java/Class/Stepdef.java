@@ -26,6 +26,7 @@ public class Stepdef
 	@Given("open {string} browserr")
 	public void method1(String x)
     {
+		//objects declarations
 	    WebDriverManager.chromedriver().setup();
 	    driver=new ChromeDriver();
 	    obj1=new Loginnpage(driver);
@@ -33,16 +34,16 @@ public class Stepdef
 	    obj3=new Messagepage(driver);
 	    obj4=new LogoutPage(driver);
 	}
-
-	@Given("launch site usingg {string}")
-	public void launch_site_usingg(String url) throws Exception
+	
+    @Given("launch site usingg {string}")
+	public void method2(String url) throws Exception
 	{
 	    driver.get(url);
 	    Thread.sleep(5000);
 	}
 
 	@When("do login usingg {string} and {string} credentials")
-	public void do_login_usingg_and_credentials(String uid, String pw) throws Exception 
+	public void method3(String uid, String pw) throws Exception 
 	{
 	   obj1.fillUserName(uid);
 	   obj1.fillPassword(pw);
@@ -50,9 +51,9 @@ public class Stepdef
 	   obj1.clickNotNow();
 	   obj2.clickNotNow1();
 	}
-
+    
 	@Then("Instagram is displayedd")
-	public void instagram_is_displayedd() 
+	public void method4() 
 	{
 	    if(obj2.isInstagramdisplayed())
 	    {
@@ -65,9 +66,9 @@ public class Stepdef
 	    }
 	    
 	}
-
+    //write msg
 	@When("click on message icon and send message")
-	public void click_on_message_icon_and_send_message(DataTable dt) throws Exception 
+	public void method5(DataTable dt) throws Exception 
 	{
 		List<Map<String,String>> b=dt.asMaps();
 		for(int i=0; i<b.size(); i++)
@@ -80,17 +81,17 @@ public class Stepdef
 		}
 	   
 	}
-
+    //do logout
 	@When("do logoutt")
-	public void do_logoutt() throws Exception 
+	public void method6() throws Exception 
 	{
 	    obj4.clickprofilepic();
 	    obj4.clicksignout();
 	    
 	}
-
+     //login page should be redisplayed
 	@Then("Login page should be redisplayedd")
-	public void login_page_should_be_redisplayedd()  
+	public void method7()  
 	{
 	   if(obj4.isLoginReDisplayed())
 	   {
@@ -101,9 +102,9 @@ public class Stepdef
 		   System.out.println("UnSuccessfully redisplyed");
 	   }
 	}
-
+    //close site
 	@When("close sitee")
-	public void close_sitee() 
+	public void method8() 
 	{
 	    driver.close();
 	}
