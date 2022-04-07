@@ -26,6 +26,7 @@ public class Stepdef
 	@Given("open {string} browserr")
 	public void method1(String x)
     {
+		//open browser
 	    WebDriverManager.chromedriver().setup();
 	    driver=new ChromeDriver();
 	    obj1=new Loginnpage(driver);
@@ -105,6 +106,7 @@ public class Stepdef
 	@When("close sitee")
 	public void close_sitee() 
 	{
+		//close site
 	    driver.close();
 	}
 
